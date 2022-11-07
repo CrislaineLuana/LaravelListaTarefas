@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TarefasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('tarefas.index');
-});
+Route::get('/', [TarefasController::class, 'index']);
+Route::post('/', [TarefasController::class, 'store']);
+Route::get('/tarefas/adicionar', [TarefasController::class, 'create']);
+Route::post('/tarefas/create', [TarefasController::class, 'store']);
+Route::get('/tarefas/editar/{tarefas}', [TarefasController::class, 'edit']);
+Route::put('/tarefas/update/{tarefas}', [TarefasController::class, 'update']);
+Route::delete('/tarefas/delete/{tarefas}',[TarefasController::class, 'delete']);

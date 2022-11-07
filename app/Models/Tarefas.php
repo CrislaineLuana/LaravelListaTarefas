@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Tarefas extends Model
 {
     use HasFactory;
+    protected $fillable = ['tarefa'];
+
+    public function scopeFilter($query, array $filters){
+        if($filters['search'] ?? false){
+            $query->where('tarefa', 'like', '%'.request('search').'%');
+        }
+    }
+
 }

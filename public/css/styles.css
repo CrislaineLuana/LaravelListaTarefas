@@ -94,13 +94,12 @@ header{
 /* Main */
 
 .container {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    background-color: rgb(213, 243, 243);   
 }
 
 .container h1{
@@ -122,13 +121,14 @@ header{
     justify-content: center;
 }
 
+
 .container-input{
     display: flex;
     margin-bottom: 25px;
 }
 
 .container-input input{
-    width: 70%;
+    width: 100%;
     height: 35px;
     border: none;
     border-top-left-radius: 5px;
@@ -138,8 +138,20 @@ header{
 }
 
 
+.container-input a{
+    height: 35px;
+    border: none;
+    border-radius: 5px ;
+    background-color: rgb(18, 102, 117);
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .container-input button{
-    width: 30%;
     height: 35px;
     border: none;
     border-top-right-radius: 5px;
@@ -149,12 +161,29 @@ header{
     color: white;
     cursor: pointer;
     transition: all .2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.container-input a {
+    width: 100%;
+}
+
+.container-input button{
+    width: 30%;
+}
+
+.container-input a:hover{
+    background-color: rgb(27, 123, 139);
+}
 .container-input button:hover{
     background-color: rgb(27, 123, 139);
 }
 
+.container-input a:hover i {
+    color: rgb(48, 163, 54);
+}
 .container-input button:hover i{
     color: rgb(48, 163, 54);
 }
@@ -252,4 +281,46 @@ header{
 
 .container-login  a {
     color: rgb(85, 238, 238);
+}
+
+.paginate nav div p{
+    color: white;
+    font-size: 10px;
+}
+
+.paginate nav{
+
+    color: white !important;
+}
+
+.container-search {
+    display: flex;
+    color: white;
+    font-size: 12px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.container-search input {
+    width: 80%;
+    height: 25px;
+    outline: none;
+    border: none;
+    border-radius: 5px; 
+    margin-right: 5px;
+    padding-left: 5px;
+    color: black;
+}
+
+.container-search button{
+    background-color: rgb(18, 102, 117);
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.container-search button:hover{
+    background-color: rgb(27, 123, 139);
 }

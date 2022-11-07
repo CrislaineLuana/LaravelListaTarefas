@@ -1,35 +1,28 @@
 
 <x-layout>
-    <div class="container">    
+
+   
+
+    <div class="container">          
         <div class="container-tarefas">
+            @include('partials._search')
             <h1>Lista de tarefas 2000</h1>
-            <div class="container-input">
-                <input type="text" placeholder="Digite sua tarefa...">
-                <button> <i class="bi bi-plus-circle-fill"></i>Adicionar</button>
-            </div>
+                <div class="container-input">   
+                    <a href="/tarefas/adicionar" type="submit"> <i class="bi bi-plus-circle-fill"></i>Adicionar nova tarefa</a>
+                </div>                               
+
             <div class="container-lista-tarefas">
-                <div class="tarefa">
-                    <p>Estudar JS</p>
-                    <div class="btn-tarefas">
-                        <a href="/editar.html"><i class="bi bi-pencil"></i></a>
-                        <form action="/excluir.html">
-                            <button type="submit"><i class="bi bi-trash3"></i></button>
-                        </form>
-                        
-                    </div>
-                </div>
-                <div class="tarefa">
-                    <p>Estudar JS</p>
-                    <div class="btn-tarefas">
-                        <a href="/editar.html"><i class="bi bi-pencil"></i></a>
-                        <form action="/excluir.html">
-                            <button type="submit"><i class="bi bi-trash3"></i></button>
-                        </form>
-                        
-                    </div>
-                </div>    
-                            
+                @foreach ($listaTarefas as $tarefa)
+                    <x-card-tarefa :tarefa="$tarefa" />
+                @endforeach
+                                                    
+            </div>
+            <div class="mt-5 paginate" >
+                {{$listaTarefas->links()}}
             </div>
         </div>
+
+        
+        
     </div>
 </x-layout>

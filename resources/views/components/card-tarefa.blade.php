@@ -1,6 +1,6 @@
 @props(['tarefa'])
 
-<div class="tarefa">
+<div class="tarefa mt-5">
     <p>{{$tarefa->tarefa}}</p>
     <div class="btn-tarefas">
         <a href="/tarefas/editar/{{$tarefa->id}}"><i class="bi bi-pencil"></i></a>

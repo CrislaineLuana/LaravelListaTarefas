@@ -9,7 +9,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Lista de tarefas 2000</title>
+    <title>Tasks</title>
 </head>
 <body>
 
@@ -19,8 +19,21 @@
                 <img  src="/img/logo.png" alt="">
             </div>
             <ul class="menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="#"><i class="bi bi-door-closed-fill" style="margin-right: 10px"></i>Sair</a></li>
+                @auth
+                    
+              
+                <li><a href="/index">Home</a></li>
+                <form action="/logout" method="Post">
+                    @csrf
+                    <li><button href="/logout"><i class="bi bi-door-closed-fill" style="margin-right: 10px"></i>Sair</button></li>
+                </form>
+
+                @else
+
+                <li><a href="/">Login</a></li>
+                <li><a href="/register">Registar-se</a></li>
+
+                @endauth
             </ul>
         </nav>
     </header>
@@ -28,7 +41,10 @@
 
     {{$slot}}
 
-
-
+    <footer style="background-color: rgb(18, 41, 90)" class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
+        <p class="ml-2">Projeto desenvolvido por Crislaine Luana</p>
+    
+    </footer>
+    <x-flash-message/>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TarefasController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +15,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [TarefasController::class, 'index']);
-Route::post('/', [TarefasController::class, 'store']);
-Route::get('/tarefas/adicionar', [TarefasController::class, 'create']);
-Route::post('/tarefas/create', [TarefasController::class, 'store']);
-Route::get('/tarefas/editar/{tarefas}', [TarefasController::class, 'edit']);
-Route::put('/tarefas/update/{tarefas}', [TarefasController::class, 'update']);
-Route::delete('/tarefas/delete/{tarefas}',[TarefasController::class, 'delete']);
+
+//Listar Tarefas
+Route::get('/index', [TarefasController::class, 'index']);
+
+//Retornar View de Adicionar Tarefas
+Route::get('/tarefas/adicionar', [TarefasController::class, 'create'])->middleware('auth');
+
+//Adicionar Tarefa
+Route::post('/tarefas/create', [TarefasController::class, 'store'])->middleware('auth');
+
+//Retornar View de Editar
+Route::get('/tarefas/editar/{tarefas}', [TarefasController::class, 'edit'])->middleware('auth');
+
+//Realiza Edição da Tarefa
+Route::put('/tarefas/update/{tarefas}', [TarefasController::class, 'update'])->middleware('auth');
+
+//Deleta Tarefa
+Route::delete('/tarefas/delete/{tarefas}',[TarefasController::class, 'delete'])->middleware('auth');
+
+//Retorna View de Login
+Route::get('/', [UsersController::class, 'login'])->middleware('guest');
+
+//Retorna View de Cadastro
+Route::get('/register', [UsersController::class, 'create'])->middleware('guest');
+
+//Realiza Cadastro
+Route::post('/users', [UsersController::class, 'store']);
+
+//Realiza Login
+Route::post('/users/authenticate', [UsersController::class, 'authenticate']);
+
+//Realiza LogOut
+Route::post('/logout', [UsersController::class, 'logout'])->middleware('auth');

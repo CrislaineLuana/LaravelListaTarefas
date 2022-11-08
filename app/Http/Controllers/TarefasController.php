@@ -9,7 +9,7 @@ class TarefasController extends Controller
     
 
     public function index(){
-        return view('tarefas.index', ['listaTarefas' => Tarefas::latest()->filter(request(['search']))->Paginate(4)]);
+        return view('tarefas.index', ['listaTarefas' => auth()->user()->Tarefas()->latest()->filter(request(['search']))->Paginate(4)]);
     }
 
     public function edit(Tarefas $tarefas){
@@ -25,9 +25,11 @@ class TarefasController extends Controller
             'tarefa' => 'required'
         ]);
  
+        $formFields['user_id'] = auth()->id();
+
         Tarefas::create($formFields);
 
-        return redirect('/')->with('message', 'Tarefa criada com sucesso!');
+        return redirect('/index')->with('message', 'Tarefa criada com sucesso!');
 
     }
     
@@ -39,14 +41,14 @@ class TarefasController extends Controller
 
         $tarefas->update($formFields);
 
-        return redirect('/')->with('message', 'Tarefa atualizada com sucesso!');
+        return redirect('/index')->with('message', 'Tarefa atualizada com sucesso!');
  
     }
 
     public function delete(Tarefas $tarefas){
         Tarefas::destroy($tarefas->id);
 
-        return redirect('/')->with('message', 'Tarefa deletada com sucesso!');
+        return redirect('/index')->with('message', 'Tarefa deletada com sucesso!');
     }
 
 

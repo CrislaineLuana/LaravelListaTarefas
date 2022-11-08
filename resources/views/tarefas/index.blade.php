@@ -3,11 +3,10 @@
 
    
 
-    <div class="container">          
+    <div class="base-container">          
         <div class="container-tarefas">
             @include('partials._search')
-            <h1>Lista de tarefas 2000</h1>
-                <div class="container-input">   
+                <div class="container-input mt-5">   
                     <a href="/tarefas/adicionar" type="submit"> <i class="bi bi-plus-circle-fill"></i>Adicionar nova tarefa</a>
                 </div>                               
 

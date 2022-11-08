@@ -1,7 +1,7 @@
 <x-layout>
 
 
-    <div class="container">
+    <div class="base-container">
         <div class="container-tarefas">  
             <h1>Editar Tarefa</h1>
             <form action="/tarefas/update/{{$tarefa->id}}" class="container-input" method="POST" >

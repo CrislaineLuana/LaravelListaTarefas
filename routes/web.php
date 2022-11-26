@@ -34,6 +34,10 @@ Route::put('/tarefas/update/{tarefas}', [TarefasController::class, 'update'])->m
 //Deleta Tarefa
 Route::delete('/tarefas/delete/{tarefas}',[TarefasController::class, 'delete'])->middleware('auth');
 
+
+
+
+
 //Retorna View de Login
 Route::get('/', [UsersController::class, 'login'])->middleware('guest');
 

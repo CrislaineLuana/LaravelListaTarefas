@@ -13,6 +13,20 @@ This project enables you to manage your **daily tasks**. It is possible to creat
 - [Laravel](https://laravel.com/)
 - [MySQL](https://www.mysql.com/)
 
+## 👩🏿‍💻 The project 
+
+### Login Page
+
+<img src="./public/readme/LoginPage.png">
+
+### Register Page
+
+<img src="./public/readme/RegisterPage.png">
+
+### Main Page
+
+<img src="./public/readme/IndexPage.png">
+
 
 ## 🤗 How Contribute
 
